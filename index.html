@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>moiova Digital — Sites para alugar e sites institucionais</title>
+<meta name="description" content="Sites para alugar a partir de R$99/mês e sites institucionais sob medida, com atendimento online. Código próprio, sem plataforma refém.">
+<meta name="theme-color" content="#141d38">
+<meta property="og:type" content="website">
+<meta property="og:title" content="moiova Digital — Sites para alugar e sites institucionais">
+<meta property="og:description" content="Sites para alugar e sites institucionais sob medida. Código próprio, atendimento online.">
+<meta property="og:url" content="https://www.moiovadigital.com.br/">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="moiova Digital">
+<meta property="og:image" content="https://www.moiovadigital.com.br/imagens/og-capa.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="moiova Digital — Sites para alugar e sites institucionais">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="moiova Digital — Sites para alugar e sites institucionais">
+<meta name="twitter:description" content="Sites para alugar a partir de R$99/mês e sites institucionais sob medida, com atendimento online.">
+<meta name="twitter:image" content="https://www.moiovadigital.com.br/imagens/og-capa.png">
+<link rel="canonical" href="https://www.moiovadigital.com.br/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a1020'/%3E%3Cpath d='M7 23V9l9 8 9-8v14' stroke='%23c9a86a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="imagens/apple-touch-icon.png" sizes="180x180">
+<!-- imagem de fundo do hero: o CSS não é detectado pelo pré-carregador, então
+     cada variante é preloaded com a media query correspondente -->
+<link rel="preload" as="image" href="imagens/principal-1.jpg" media="(min-width:769px)">
+<link rel="preload" as="image" href="imagens/imagem-celular.jpg" media="(max-width:768px)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "moiova Digital",
+  "description": "Sites para alugar e sites institucionais sob medida.",
+  "telephone": "+55-54-99231-1305",
+  "areaServed": {"@type": "Country", "name": "Brasil"},
+  "priceRange": "R$99-mês a R$499-mês"
+}
+</script>
+<style>
+  /* ===== CSS CRÍTICO — embutido aqui para a primeira tela não piscar sem estilo =====
+     Só o que aparece na abertura: tokens, reset, menu fixo, hero, botões,
+     barra de progresso e o botão do WhatsApp. O resto (seções, cards, preços,
+     processo, sobre, contato e rodapé) está em style.css, sem bloquear. */
+  /* ===== TOKENS (contraste WCAG 2.1 calculado antes de fixar) =====
+     texto/fundo 16.10 · muted/fundo 8.71 · ouro/fundo 8.39 · ouro/card 8.03
+     botão tinta/ouro 8.56 — 14/14 pares OK */
+  :root{
+    --bg:#0a1020;
+    --bg-2:#101831;
+    --bar:#141d38;            /* menu fixo — mais claro que o fundo */
+    --gold:#c9a86a;
+    --gold-light:#e8d3a2;
+    --gold-dark:#a98a52;
+    --text:#f1ece2;
+    --muted:#aab0bd;
+    --nav:#cfd3dc;
+    --pad:125px;
+    --serif:Georgia,"Times New Roman",Times,serif;   /* fonte de sistema — nada externo */
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --gold-metal:linear-gradient(100deg,#a98a52 0%,#cdb078 22%,#f1e3b4 48%,#cfb27a 70%,#e4cd98 88%,#aa8c54 100%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);font-weight:400;
+    background:var(--bg);color:var(--text);
+    min-height:100vh;position:relative;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* clip em vez de hidden: não cria scroll container e por isso NÃO quebra o
+     position:sticky do menu (overflow-x:hidden no body quebraria) */
+  @supports (overflow-x:clip){ body{overflow-x:clip} }
+
+  /* A imagem de fundo mora no .hero, NÃO em .page: em .page ela tinha a altura
+     do documento inteiro e vazava para as seções seguintes — medido,834px dentro
+     do #servicos a 768px, e em 375px ela parava39px antes, deixando emenda. */
+  .page{background-color:var(--bg);position:relative}
+  .container{width:100%;max-width:1376px;margin:0 auto;padding:0 var(--pad);position:relative;z-index:1}
+  section[id]{scroll-margin-top:88px}   /* folga para o menu fixo */
+  a{color:var(--gold)}
+  :focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--gold-light);color:#0a1020;
+    padding:11px 18px;border-radius:0 0 8px 0;font-weight:600;text-decoration:none}
+  .skip:focus{left:0}
+
+  /* ===== BARRA DE PROGRESSO (acima do menu fixo) ===== */
+  .progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:120;background:rgba(255,255,255,.06);pointer-events:none}
+  .progress-bar{display:block;height:100%;transform:scaleX(0);transform-origin:0 50%;
+    background:linear-gradient(90deg,var(--gold-dark),var(--gold-light))}
+
+  /* ===== MENU FIXO (acompanha o scroll) =====
+     Fundo mais claro que o da página + fio dourado: o menu sumia na escuridão. */
+  .site-header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(20,29,56,.95);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(201,168,106,.32);
+    box-shadow:0 16px 34px -26px rgba(0,0,0,.95);
+  }
+  .site-header .container{padding-top:13px;padding-bottom:13px}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);
+    font-family:var(--serif);font-size:28px;letter-spacing:.01em;font-weight:400}
+  .logo span{color:var(--gold)}
+  .menu{display:flex;gap:32px;list-style:none}
+  .menu a{position:relative;display:inline-block;padding-bottom:7px;color:var(--nav);
+    text-decoration:none;font-size:16px;font-weight:400;letter-spacing:.02em;transition:color .2s}
+  .menu a:hover,.menu a:focus-visible{color:var(--gold-light)}
+  /* sublinhado que cresce da esquerda */
+  .menu a::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+    background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));
+    transform:scaleX(0);transform-origin:left center;transition:transform .28s ease;
+  }
+  .menu a:hover::after,.menu a:focus-visible::after{transform:scaleX(1)}
+  .btn-nav{
+    display:inline-block;text-decoration:none;color:var(--gold-light);font-size:16px;
+    padding:6px;border-radius:6px;position:relative;overflow:hidden;
+    border:1px solid transparent;
+    background:linear-gradient(#141d38,#141d38) padding-box,var(--gold-metal) border-box;
+    box-shadow:0 0 14px rgba(201,168,106,.18);
+  }
+  .btn-nav span{display:block;padding:7px 18px;border:1px solid rgba(201,168,106,.55);border-radius:4px;
+    background:rgba(201,168,106,.08);position:relative;overflow:hidden}
+  .btn-nav span::after,.btn-outline::after{
+    content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,240,200,.32),transparent);
+    transform:skewX(-20deg);transition:left .7s ease;pointer-events:none}
+  .btn-nav:hover span::after,.btn-outline:hover::after{left:130%}
+
+  /* ===== HAMBÚRGUER (≤980px) =====
+     Substitui a linha rolável: o header fixo media174px no celular (46% da tela)
+     e precisava encolher para ~70px. Alvo 46px (≥44). */
+  .burger{
+    display:none;align-items:center;justify-content:center;
+    width:46px;height:46px;padding:0;cursor:pointer;flex-direction:column;gap:5px;
+    background:transparent;border:1px solid rgba(201,168,106,.5);border-radius:9px;
+  }
+  .burger span{display:block;width:20px;height:2px;border-radius:2px;background:var(--gold-light);
+    transition:transform .25s ease,opacity .2s ease}
+  .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .menu-cta{display:none}   /* no desktop o CTA é o .btn-nav */
+
+  /* ===== HERO ===== */
+  /* z-index:0 cria o stacking context — sem ele, o ::before com z-index:-1 cairia
+     atrás do fundo e sumiria. A imagem é cover: sempre preenche o hero, sem emenda
+     e sem vazar para a seção seguinte. */
+  .hero{
+    padding-top:64px;padding-bottom:70px;position:relative;z-index:0;
+    background:url("imagens/principal-1.jpg") no-repeat top center;background-size:cover;
+  }
+  /* véu atrás do texto: o fundo tem mockups claros e o parágrafo caía em cima deles.
+     inset:0 — se passasse do hero, escureceria o topo da seção seguinte. */
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:linear-gradient(100deg,
+      rgba(10,16,32,.94) 0%,rgba(10,16,32,.82) 42%,rgba(10,16,32,.38) 72%,rgba(10,16,32,.08) 100%);
+  }
+  .hero-text{max-width:660px}
+  h1{font-family:var(--serif);font-weight:400;line-height:1.06}
+  h1 .gold{
+    display:block;font-size:clamp(2.1rem,5vw,3.6rem);text-transform:uppercase;letter-spacing:.005em;
+    background:linear-gradient(100deg,#a98a52 0%,#d2b77c 24%,#f4e7bb 46%,#c9a86a 66%,#e8d4a0 86%,#b69556 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  h1 .white{display:block;font-size:clamp(1.9rem,4.6vw,3.3rem);color:var(--text);margin-top:4px;font-weight:400}
+  .hero p{margin-top:22px;max-width:540px;font-size:20px;line-height:1.55;font-weight:400;color:var(--muted)}
+  .cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
+  .trust{list-style:none;display:flex;gap:22px;flex-wrap:wrap;padding:0;margin:30px 0 0;
+    font-size:14.5px;color:var(--muted)}
+  .trust li::before{content:"✓ ";color:var(--gold);font-weight:700}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;text-decoration:none;
+    font-size:17px;font-weight:600;padding:16px 28px;border-radius:5px;
+    transition:transform .2s,box-shadow .2s;cursor:pointer;font-family:inherit;
+  }
+  .btn-gold{
+    position:relative;overflow:hidden;color:#1b1710;
+    background:
+      linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,250,225,.55) 50%,rgba(255,255,255,0) 70%),
+      linear-gradient(100deg,#b3935a 0%,#cdb078 28%,#e9d7a5 50%,#cdb078 72%,#a98a52 100%);
+    border:1px solid #e3cd96;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.18),0 0 24px rgba(201,168,106,.35);
+  }
+  .btn-gold::after{
+    content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(105deg,transparent,rgba(255,255,255,.65),transparent);
+    transform:skewX(-20deg);transition:left .7s ease;pointer-events:none;
+  }
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(201,168,106,.5)}
+  .btn-gold:hover::after{left:130%}
+  .btn-outline{
+    color:var(--text);font-weight:400;position:relative;overflow:hidden;
+    border:1px solid transparent;border-radius:5px;
+    background:
+      linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,248,220,.10) 50%,rgba(255,255,255,0) 70%) padding-box,
+      linear-gradient(180deg,#141b2d,#0c1222) padding-box,
+      var(--gold-metal) border-box;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 16px rgba(201,168,106,.12);
+  }
+  .btn-outline:hover{background:
+      linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,248,220,.16) 50%,rgba(255,255,255,0) 70%) padding-box,
+      linear-gradient(180deg,#18213a,#0e1527) padding-box,
+      var(--gold-metal) border-box}
+  .btn-block{display:flex;width:100%}
+
+  /* ===== SEÇÕES, CARDS, PREÇOS, PROCESSO, SOBRE, CONTATO E RODAPÉ =====
+     Estão em style.css (carregado sem bloquear). Só o que aparece na
+     primeira tela fica aqui, dentro do <head>. */
+
+  /* ===== FLUTUANTES: WhatsApp (sempre) + voltar ao topo (400px) ===== */
+  .fab{position:fixed;right:24px;z-index:90;width:54px;height:54px;border-radius:50%;
+    display:grid;place-items:center;cursor:pointer;text-decoration:none;
+    transition:transform .2s ease,box-shadow .2s ease;border:1px solid transparent}
+  .fab[hidden]{display:none}
+  .fab svg{width:24px;height:24px;flex:none}
+  /* WhatsApp: rótulo "Entre em Contato" — visível desde a abertura.
+     width/height do círculo são anulados aqui porque virou pílula. */
+  .fab-wa{
+    bottom:24px;right:24px;width:auto;height:52px;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:0 22px;border-radius:999px;
+    font-family:inherit;font-size:16px;font-weight:600;white-space:nowrap;
+    color:#1b1710;
+    background:
+      linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,250,225,.5) 50%,rgba(255,255,255,0) 70%) padding-box,
+      linear-gradient(100deg,#b3935a,#cdb078 35%,#e9d7a5 55%,#cdb078 75%,#a98a52) padding-box,
+      #e3cd96 border-box;
+    box-shadow:0 0 22px rgba(201,168,106,.4),0 14px 30px -16px rgba(0,0,0,.9)}
+  .fab-top{bottom:90px;color:var(--gold-light);
+    background:linear-gradient(#141d38,#141d38) padding-box,var(--gold-metal) border-box;
+    box-shadow:0 0 18px rgba(201,168,106,.22),0 14px 30px -16px rgba(0,0,0,.9)}
+  .fab:hover{transform:translateY(-3px);box-shadow:0 0 30px rgba(201,168,106,.55),0 18px 34px -16px rgba(0,0,0,.9)}
+
+  /* ===== RESPONSIVO ===== */
+  @media (max-width:1100px){
+    :root{--pad:40px}
+    .hero{padding-top:44px;padding-bottom:56px;background-position:75% top}
+    /* no mobile o texto ocupa a largura toda: o véu vira vertical e mais fechado */
+    .hero::before{background:linear-gradient(180deg,
+      rgba(10,16,32,.93) 0%,rgba(10,16,32,.88) 60%,rgba(10,16,32,.74) 100%)}
+  }
+  /* ≤980px: hambúrguer + painel. Substitui a linha rolável — sem substituto a
+     nav não pode sumir (regra do acervo). O painel herda o fundo do header. */
+  @media (max-width:980px){
+    .nav{flex-wrap:nowrap;gap:14px}
+    .burger{display:inline-flex}
+    .menu{
+      position:absolute;top:100%;
+      left:calc(-1 * var(--pad));right:calc(-1 * var(--pad));
+      flex-direction:column;gap:0;
+      background:#141d38;
+      border-bottom:1px solid rgba(201,168,106,.32);
+      box-shadow:0 26px 44px -30px rgba(0,0,0,.95);
+      padding:6px var(--pad) 14px;
+      display:none;
+    }
+    .menu.aberto{display:flex}
+    .menu li{width:100%}
+    .menu a{display:block;padding:13px 0;font-size:16.5px;
+      border-bottom:1px solid rgba(201,168,106,.14)}
+    .menu li:last-child a{border-bottom:none}
+    .menu-cta{display:block}
+    .menu-cta a{color:var(--gold-light);font-weight:600}
+  }
+  @media (max-width:600px){
+    :root{--pad:22px}
+    .logo{font-size:25px}
+    .btn-nav{display:none}     /* no celular o CTA fica no painel do hambúrguer */
+    .hero p{font-size:17px}
+    .trust{gap:12px}
+    /* o círculo é só o voltar-ao-topo; a pílula do WhatsApp mantém a largura automática */
+    .fab-top{right:16px;width:50px;height:50px;bottom:80px}
+    .fab-wa{right:16px;bottom:16px;padding:0 18px;font-size:15px}
+  }
+
+  /* ===== FUNDO 9:16 NO CELULAR =====
+     imagem-celular.jpg = 768x1376 (0.558 ≈ 9:16). Só a imagem troca — o
+     background-size:cover e a posição já vêm do .hero base. */
+  @media (max-width:768px){
+    .hero{
+      background-image:url("imagens/imagem-celular.jpg");
+      background-position:top center;
+    }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
+  }
+</style>
+
+<!-- CSS do resto da página (seções, cards, preços, rodapé): baixado em paralelo
+     e aplicado ao terminar — não bloqueia a primeira tela. Sem JS, o <noscript>
+     aplica a folha do jeito tradicional. -->
+<link rel="preload" as="style" href="css/style.css" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+</head>
+<body>
+
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<!-- barra de progresso: fica acima do menu fixo -->
+<div class="progress" aria-hidden="true"><span class="progress-bar" id="progresso"></span></div>
+
+<div class="page">
+
+<header class="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#main">moiova <span>Digital</span></a>
+      <ul class="menu" id="menu-principal">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#alugar">Alugar site</a></li>
+        <li><a href="#institucional">Site institucional</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <!-- só aparece no painel mobile: no desktop o CTA é o .btn-nav -->
+        <li class="menu-cta"><a href="#contato">Orçamento</a></li>
+      </ul>
+      <a class="btn-nav" href="#contato"><span>Orçamento</span></a>
+      <button class="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1>
+          <span class="gold">Sites para alugar</span>
+          <span class="white">e sites institucionais</span>
+        </h1>
+        <p>Alugue a partir de R$99/mês ou tenha um site institucional sob medida, com atendimento online. Código próprio — sem plataforma que te segura refém.</p>
+        <div class="cta">
+          <a class="btn btn-gold" href="#alugar">Ver planos de aluguel</a>
+          <a class="btn btn-outline" href="#institucional">Site institucional</a>
+        </div>
+        <ul class="trust" aria-label="Diferenciais">
+          <li>Resposta no mesmo dia útil</li>
+          <li>Suporte humano no WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Serviços</h2>
+        <p class="lead">Dois formatos: o site que você aluga por mensalidade e o site institucional feito sob medida.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-inner">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10l8-6 8 6v10H4z"/><path d="M10 20v-6h4v6"/></svg>
+            <h3>Site para alugar</h3>
+            <p>Mensalidade com manutenção inclusa. Sem fidelidade — cancela quando quiser. Planos de 1 a 5 páginas, a partir de R$99/mês.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-inner">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
+            <h3>Site institucional</h3>
+            <p>Home, serviços, portfólio, sobre e contato, com título, descrição e canonical próprios em cada página. Desenvolvido do zero, sob medida.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SITE PARA ALUGAR ===== -->
+  <section class="section section-alt" id="alugar">
+    <div class="container">
+      <div class="section-title">
+        <h2>Site para alugar</h2>
+        <p class="lead">Mensalidade com manutenção, hospedagem e alteração mensal inclusa. Adesão única na contratação. Sem fidelidade.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-inner">
+            <h3>1 página</h3>
+            <p class="price"><span class="was"><span class="from">de</span> <span class="old">R$199/mês</span></span><span class="por">por</span> <span class="cur">R$</span>99<span class="per">/mês</span></p>
+            <p class="price-sub"><span class="was"><span class="from">de</span> <span class="old">R$500</span></span>por adesão de R$250</p>
+            <ul class="feat">
+              <li>Site de conversão em uma página</li>
+              <li>Formulário que envia direto para o WhatsApp</li>
+              <li>SEO e dados estruturados</li>
+              <li>1 alteração de conteúdo por mês</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="https://wa.me/5554992311305?text=Ol%C3%A1!%20Quero%20o%20site%20para%20alugar%20de%201%20p%C3%A1gina%20(R%2499%20%2B%20ades%C3%A3o%20R%24250)." target="_blank" rel="noopener">Contratar</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-inner">
+            <span class="tag">Mais escolhido</span>
+            <h3>2 páginas</h3>
+            <p class="price"><span class="was"><span class="from">de</span> <span class="old">R$299/mês</span></span><span class="por">por</span> <span class="cur">R$</span>199<span class="per">/mês</span></p>
+            <p class="price-sub"><span class="was"><span class="from">de</span> <span class="old">R$700</span></span>por adesão de R$350</p>
+            <ul class="feat">
+              <li>Duas páginas com navegação entre elas</li>
+              <li>Formulário que envia direto para o WhatsApp</li>
+              <li>SEO e dados estruturados</li>
+              <li>1 alteração de conteúdo por mês</li>
+            </ul>
+            <a class="btn btn-gold btn-block" href="https://wa.me/5554992311305?text=Ol%C3%A1!%20Quero%20o%20site%20para%20alugar%20de%202%20p%C3%A1ginas%20(R%24199%20%2B%20ades%C3%A3o%20R%24350)." target="_blank" rel="noopener">Contratar</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-inner">
+            <h3>até 5 páginas</h3>
+            <p class="price"><span class="was"><span class="from">de</span> <span class="old">R$499/mês</span></span><span class="por">por</span> <span class="cur">R$</span>299<span class="per">/mês</span></p>
+            <p class="price-sub"><span class="was"><span class="from">de</span> <span class="old">R$1.000</span></span>por adesão de R$500</p>
+            <ul class="feat">
+              <li>Estrutura completa de site institucional</li>
+              <li>Formulário que envia direto para o WhatsApp</li>
+              <li>SEO e dados estruturados</li>
+              <li>1 alteração de conteúdo por mês</li>
+            </ul>
+            <a class="btn btn-outline btn-block" href="https://wa.me/5554992311305?text=Ol%C3%A1!%20Quero%20o%20site%20para%20alugar%20de%20at%C3%A9%205%20p%C3%A1ginas%20(R%24299%20%2B%20ades%C3%A3o%20R%24500)." target="_blank" rel="noopener">Contratar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SITE INSTITUCIONAL ===== -->
+  <section class="section" id="institucional">
+    <div class="container">
+      <div class="section-title">
+        <h2>Site institucional</h2>
+        <p class="lead">Desenvolvimento personalizado, do zero. Orçamento fechado e prazo declarado antes de começar.</p>
+      </div>
+      <div class="split">
+        <div>
+          <p style="color:var(--muted);font-size:16.5px;line-height:1.7">
+            Home, serviços, portfólio, sobre e contato: cada página com título, descrição e canonical próprios, prontos para a indexação.
+            Sem plataforma refém — carrega rápido, é acessível e continua seu depois da entrega.
+          </p>
+          <p style="color:var(--muted);font-size:16.5px;line-height:1.7;margin-top:16px">
+            Sem taxa escondida: o preço é fechado no orçamento, com prazo declarado.
+            O que está escrito no contrato é o que você paga.
+          </p>
+          <div class="cta" style="margin-top:28px">
+            <a class="btn btn-gold" href="https://wa.me/5554992311305?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20site%20institucional." target="_blank" rel="noopener">Pedir orçamento</a>
+          </div>
+        </div>
+        <article class="card">
+          <div class="card-inner">
+            <h3>O que está incluído</h3>
+            <ul class="feat">
+              <li>Estrutura completa: home, serviços, portfólio, sobre e contato</li>
+              <li>Título, descrição e canonical próprios em cada página</li>
+              <li>SEO e dados estruturados desde a primeira linha</li>
+              <li>Design responsivo, rápido e acessível</li>
+              <li>Testado no celular antes de publicar</li>
+              <li>Hospedagem e manutenção à parte, combinadas no orçamento</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFÓLIO ===== -->
+  <section class="section section-alt" id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>Portfólio</h2>
+        <p class="lead">O formato que dominamos: o site institucional para academias e entidades.</p>
+      </div>
+      <div class="split">
+        <div>
+          <p style="color:var(--muted);font-size:16.5px;line-height:1.7">
+            Academias de letras, associações e entidades: cada uma tem uma história para contar e um canal
+            para abrir — e é exatamente isso que o site precisa mostrar.
+          </p>
+          <p style="color:var(--muted);font-size:16.5px;line-height:1.7;margin-top:16px">
+            Trabalhamos com um padrão pronto para esse tipo de projeto, sempre adaptado ao que a sua instituição tem
+            de único: memória viva, agenda de eventos, notícias e um caminho claro para quem quer apoiar.
+          </p>
+          <div class="cta" style="margin-top:28px">
+            <a class="btn btn-outline" href="#contato">Pedir orçamento</a>
+          </div>
+        </div>
+        <article class="card">
+          <div class="card-inner">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4v6c0 4.4-3.4 7.4-8 8-4.6-.6-8-3.6-8-8V7z"/><path d="M9 12l2 2 4-4"/></svg>
+            <h3>Academias e instituições</h3>
+            <p>Um site que honra a tradição e abre portas para o futuro: seus membros, cadeiras e patronos em destaque, seus eventos sempre à vista e um canal pronto para atrair apoiadores.</p>
+            <ul class="feat">
+              <li>Galeria de membros com cadeiras e patronos: preserve e apresente a memória viva da instituição</li>
+              <li>Agenda de eventos com arquivo: cada sarau, posse e lançamento fica registrado para sempre</li>
+              <li>Notícias com data visível: mostre que a academia está ativa e em movimento</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESSO ===== -->
+  <section class="section" id="processo">
+    <div class="container">
+      <div class="section-title">
+        <h2>Processo</h2>
+        <p class="lead">Três passos, sem surpresa. Você vê a página antes de publicar.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card">
+          <div class="card-inner">
+            <span class="step-n">1</span>
+            <h3>Conversa</h3>
+            <p class="card-lead">Fale com a gente, sem burocracia.</p>
+            <p>Você conta o que precisa. Respondemos no mesmo dia útil com uma proposta clara, sem enrolação e sem surpresa no preço.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-inner">
+            <span class="step-n">2</span>
+            <h3>Aprovação</h3>
+            <p class="card-lead">Você só publica quando estiver satisfeito.</p>
+            <p>Veja a página pronta antes de ir ao ar e peça os ajustes que quiser, até ficar do jeito certo.</p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-inner">
+            <span class="step-n">3</span>
+            <h3>Publicação</h3>
+            <p class="card-lead">No ar, funcionando e sem você ficar perdido.</p>
+            <p>Publicamos, testamos no celular e mostramos como pedir alterações futuras, para você nunca ficar na mão depois da entrega.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="section section-alt" id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sobre a moiova Digital</h2>
+        <p class="lead">Código próprio. Sem plataforma refém.</p>
+      </div>
+      <div class="split">
+        <div>
+          <p style="color:var(--muted);font-size:16.5px;line-height:1.7">
+            A moiova Digital é um estúdio de criação digital que constrói sites institucionais e sites para alugar,
+            com atendimento online em todas as etapas. Cada projeto nasce do zero: carrega rápido, é acessível e
+            não depende de atualização obrigatória de plataforma, então seu site é entregue funcionando e
+            sem surpresas.
+          </p>
+          <p style="color:var(--muted);font-size:16.5px;line-height:1.7;margin-top:16px">
+            Aqui a conversa é clara: preço fechado, prazo declarado e manutenção mensal transparente.
+            O que está escrito no contrato é nosso compromisso.
+          </p>
+          <div class="cta" style="margin-top:28px">
+            <a class="btn btn-gold" href="#contato">Falar agora</a>
+          </div>
+        </div>
+        <div>
+          <h3>Por que escolher a moiova Digital</h3>
+          <ul class="diferenciais">
+            <li><strong>Código próprio, do zero:</strong> seu site institucional não fica refém de tema pronto</li>
+            <li><strong>Atendimento online em todas as etapas:</strong> do primeiro contato à publicação</li>
+            <li><strong>SEO e dados estruturados em todos os planos:</strong> seu negócio pronto para ser encontrado no Google desde o primeiro dia</li>
+            <li><strong>Manutenção mensal:</strong> o site fica atualizado e funcionando, sem custo escondido</li>
+            <li><strong>Suporte humano no WhatsApp:</strong> uma pessoa de verdade responde no mesmo dia útil</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contato</h2>
+        <p class="lead">Fale com a gente agora e receba sua proposta ainda hoje.</p>
+      </div>
+      <div class="contato-card">
+        <p class="contato-texto">Chame no WhatsApp, conte o que você precisa e receba uma proposta clara no mesmo dia útil. Sem formulário longo, sem fila de espera: é uma conversa direta, com uma pessoa de verdade.</p>
+        <div class="cta" style="margin-top:24px">
+          <a class="btn btn-gold" href="https://wa.me/5554992311305?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20site." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        </div>
+        <div class="contato-linha">
+          <span><strong>WhatsApp:</strong> <a href="https://wa.me/5554992311305" target="_blank" rel="noopener">(54) 99231-1305</a></span>
+          <span><strong>Telefone:</strong> <a href="tel:+5554992311305">(54) 99231-1305</a></span>
+          <span><strong>Atendimento:</strong> online</span>
+          <span><strong>Horário:</strong> seg a sex, 9h às 18h · sábados por agendamento</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="ftr">
+      <div>
+        <p class="ftr-marca">moiova <span>Digital</span></p>
+        <p class="ftr-nota">Sites para alugar e sites institucionais com código próprio.</p>
+      </div>
+      <ul class="ftr-links">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#alugar">Alugar site</a></li>
+        <li><a href="#institucional">Site institucional</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="ftr-base">
+      <p>© 2026 moiova Digital. Todos os direitos reservados. · <a href="https://wa.me/5554992311305" target="_blank" rel="noopener" style="color:var(--gold-light)">WhatsApp (54) 99231-1305</a></p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /.page -->
+
+<!-- WhatsApp: visível desde a abertura. Sem aria-label: o nome acessível passa a
+     ser o texto visível "Entre em Contato" (WCAG 2.5.3 — Label in Name). -->
+<a class="fab fab-wa" href="https://wa.me/5554992311305?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20moiova%20Digital." target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23a8.18 8.18 0 0 1 8.23 8.24c0 4.54-3.69 8.23-8.23 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.79.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.17 1.73 2.64 4.19 3.7.58.26 1.04.41 1.4.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+  <span>Entre em Contato</span>
+</a>
+
+<!-- Voltar ao topo: aparece depois de 400px -->
+<button class="fab fab-top" type="button" id="voltar-topo" hidden aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- JS separado e com defer: não atrasa o parse nem a primeira tela -->
+<script src="js/script.js" defer></script>
+</body>
+</html>
