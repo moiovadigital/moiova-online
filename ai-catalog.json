@@ -1,0 +1,22 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "moiova Digital",
+    "identifier": "moiovadigital.com.br",
+    "documentationUrl": "https://www.moiovadigital.com.br/"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:moiovadigital.com.br:knowledge:llms-txt",
+      "displayName": "moiova Digital — índice de conteúdo",
+      "type": "text/plain",
+      "url": "https://www.moiovadigital.com.br/llms.txt",
+      "description": "Índice em Markdown com os serviços, os planos de site para alugar, o site institucional, o processo de trabalho e os canais de contato da moiova Digital.",
+      "representativeQueries": [
+        "quanto custa alugar um site com a moiova Digital",
+        "quais planos de site a moiova Digital oferece",
+        "como pedir um orçamento de site institucional"
+      ]
+    }
+  ]
+}

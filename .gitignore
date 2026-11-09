@@ -1,0 +1,10 @@
+# cache local do wrangler (nunca versionar)
+.wrangler/
+
+# dependências e builds
+node_modules/
+
+# editor/OS
+.DS_Store
+Thumbs.db
+*.log

@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" href="imagens/apple-touch-icon.png" sizes="180x180">
 <!-- imagem de fundo do hero: o CSS não é detectado pelo pré-carregador, então
      cada variante é preloaded com a media query correspondente -->
-<link rel="preload" as="image" href="imagens/principal-1.jpg" media="(min-width:769px)">
-<link rel="preload" as="image" href="imagens/imagem-celular.jpg" media="(max-width:768px)">
+<link rel="preload" as="image" type="image/webp" href="imagens/principal-1.webp" media="(min-width:769px)" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" href="imagens/imagem-celular.webp" media="(max-width:768px)" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -155,7 +155,7 @@
      e sem vazar para a seção seguinte. */
   .hero{
     padding-top:64px;padding-bottom:70px;position:relative;z-index:0;
-    background:url("imagens/principal-1.jpg") no-repeat top center;background-size:cover;
+    background:url("imagens/principal-1.webp") no-repeat top center;background-size:cover;
   }
   /* véu atrás do texto: o fundo tem mockups claros e o parágrafo caía em cima deles.
      inset:0 — se passasse do hero, escureceria o topo da seção seguinte. */
@@ -284,11 +284,11 @@
   }
 
   /* ===== FUNDO 9:16 NO CELULAR =====
-     imagem-celular.jpg = 768x1376 (0.558 ≈ 9:16). Só a imagem troca — o
+     imagem-celular.webp = 384x688 (0.558 ≈ 9:16). Só a imagem troca — o
      background-size:cover e a posição já vêm do .hero base. */
   @media (max-width:768px){
     .hero{
-      background-image:url("imagens/imagem-celular.jpg");
+      background-image:url("imagens/imagem-celular.webp");
       background-position:top center;
     }
   }
@@ -297,11 +297,12 @@
   }
 </style>
 
-<!-- CSS do resto da página (seções, cards, preços, rodapé): baixado em paralelo
-     e aplicado ao terminar — não bloqueia a primeira tela. Sem JS, o <noscript>
-     aplica a folha do jeito tradicional. -->
-<link rel="preload" as="style" href="css/style.css" onload="this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="css/style.css"></noscript>
+<!-- CSS do resto da página (seções, cards, preços, rodapé).
+     Bloqueante DE PROPÓSITO: antes carregava com preload + onload, e a página
+     pintava sem o estilo das .section/.cards/.grid-3 (que estão só aqui) e depois
+     pulava — PageSpeed mediu CLS 0.273. São só 7 KB na mesma origem: o custo de
+     bloquear é irrelevante comparado ao layout shift que evita. -->
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 

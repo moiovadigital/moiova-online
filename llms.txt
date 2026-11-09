@@ -1,0 +1,51 @@
+# moiova Digital
+
+Estúdio de criação digital: **sites para alugar** a partir de R$99/mês e
+**sites institucionais sob medida**, com atendimento online. Código próprio,
+sem plataforma refém.
+
+## Páginas
+
+- [Início](https://www.moiovadigital.com.br/)
+- [Serviços](https://www.moiovadigital.com.br/#servicos)
+- [Site para alugar](https://www.moiovadigital.com.br/#alugar)
+- [Site institucional](https://www.moiovadigital.com.br/#institucional)
+- [Portfólio](https://www.moiovadigital.com.br/#portfolio)
+- [Processo](https://www.moiovadigital.com.br/#processo)
+- [Sobre](https://www.moiovadigital.com.br/#sobre)
+- [Contato](https://www.moiovadigital.com.br/#contato)
+
+## Site para alugar — planos
+
+| Plano | Mensalidade | Adesão única |
+| --- | --- | --- |
+| [1 página](https://www.moiovadigital.com.br/#alugar) | R$99/mês | R$250 |
+| [2 páginas](https://www.moiovadigital.com.br/#alugar) — mais escolhido | R$199/mês | R$350 |
+| [Até 5 páginas](https://www.moiovadigital.com.br/#alugar) | R$299/mês | R$500 |
+
+Mensalidade com hospedagem, manutenção e 1 alteração de conteúdo por mês.
+Sem fidelidade — cancela quando quiser.
+
+## Site institucional
+
+Orçamento fechado e prazo declarado antes de começar. Estrutura completa
+(home, serviços, portfólio, sobre e contato), cada página com título,
+descrição e canonical próprios, SEO e dados estruturados desde a primeira linha.
+
+## Como funciona
+
+1. [Conversa](https://www.moiovadigital.com.br/#processo) — proposta clara no mesmo dia útil
+2. [Aprovação](https://www.moiovadigital.com.br/#processo) — você vê a página antes de publicar
+3. [Publicação](https://www.moiovadigital.com.br/#processo) — no ar, testada no celular
+
+## Contato
+
+- WhatsApp: https://wa.me/5554992311305
+- Telefone: (54) 99231-1305
+- Atendimento: online, seg a sex das 9h às 18h (sábados por agendamento)
+
+## Recursos deste site
+
+- [ai-catalog.json](https://www.moiovadigital.com.br/ai-catalog.json) — manifesto de recursos para agentes de IA
+- [robots.txt](https://www.moiovadigital.com.br/robots.txt)
+- [sitemap.xml](https://www.moiovadigital.com.br/sitemap.xml)
